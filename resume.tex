@@ -1,0 +1,99 @@
+%Technical Review template made by Jeroen Hanselman for MaRDI (Mathematical Research Data Initiative)
+%
+% The template used for this technical review was adapted from the template made by Timmy Chan on https://github.com/TimmyChan 
+
+%====================
+% Packages and initialization
+%====================
+\documentclass[10pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{graphicx}
+\usepackage{pifont,xcolor}
+\usepackage{amssymb}
+\usepackage{TLCresume}
+\usepackage{tikz}
+\usepackage{parallel,enumitem}
+
+%====================
+% Colors and commands useful for the review
+%====================
+\definecolor{mardiblue}{RGB}{4,91,167}
+\definecolor{mardiorange}{RGB}{208,102,49}
+
+\newcommand{\mplus}[1][mardiblue]{
+  \begingroup\leavevmode\color{#1}
+  \setlength{\unitlength}{0.8em}
+  \linethickness{.25em}
+  \begin{picture}(1,1)
+  \put(0,0.5){\line(1,0){1}}
+  \put(0.5,0){\line(0,1){1}}
+  \end{picture}
+  \hspace{0.2em}
+  \endgroup
+}
+
+\newcommand{\mminus}[1][mardiorange]{
+  \begingroup\leavevmode\color{#1}
+  \setlength{\unitlength}{0.8em}
+  \linethickness{.25em}
+  \begin{picture}(1,1)
+  \put(0,0.5){\line(1,0){1}}
+  \end{picture}
+  \hspace{0.2em}
+  \endgroup
+}
+
+\makeatletter
+\newcommand*{\radiobutton}{
+  \@ifstar{\@radiobutton0}{\@radiobutton1}
+}
+\newcommand*{\@radiobutton}[1]{
+  \begin{tikzpicture}
+    \pgfmathsetlengthmacro\radius{height("X")/2}
+    \draw[radius=\radius] circle;
+    \ifcase#1 \fill[radius=.6*\radius] circle;\fi
+  \end{tikzpicture}
+}
+\makeatother
+
+%====================
+% Title of paper and authors
+%====================
+\def\titleofpaper{Algorithm to compute the number of carrots needed to complete a proof} 
+\def\authors{Jeroen Hanselman and Mardi the Math bunny}
+
+\input{_header}
+\begin{document}
+
+
+%====================
+% Sections of the review
+%====================
+\section{Basic Info}
+\input{sections/1_basicinfo}
+
+\section{Importance of software in the paper}
+\input{sections/2_importance}
+
+\section{Reproducibility (Installation)}
+\input{sections/3_installation}
+
+\section{Installation steps taken}
+\input{sections/4_installsteps}
+
+\section{Reproducibility (Records of setup)}
+\input{sections/5_setup}
+
+\section{Reproducibility (Running the code)}
+\input{sections/6_reproducibility}
+
+\section{Correctness and Reliability}
+\input{sections/7_correctness}
+
+\section{Readability}
+\input{sections/8_readability}
+ 
+\section{Comments}
+\input{sections/9_comments}
+
+\end{document}
